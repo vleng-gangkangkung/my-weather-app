@@ -5,18 +5,43 @@ function searchCity(citySearch) {
   axios.get(apiUrl).then(showTemperature);
 }
 
+////-------POPULAR CITIES SEARCH RESULT--------/////
+// ----- LONDON ---//
+function london() {
+  searchCity("London");
+}
+let londonBtn = document
+  .querySelector("#london")
+  .addEventListener("click", london);
+
+// ----- NY ---//
+function newyork() {
+  searchCity("New York");
+}
+let nyBtn = document
+  .querySelector("#new-york")
+  .addEventListener("click", newyork);
+
+// ----- BEIJING  ---//
+function beijing() {
+  searchCity("Beijing");
+}
+let beijingBtn = document
+  .querySelector("#beijing")
+  .addEventListener("click", beijing);
+
+// ----- SAN FRAN  ---//
+function sanfrancisco() {
+  searchCity("San Francisco");
+}
+let sanfranBtn = document
+  .querySelector("#san-francisco")
+  .addEventListener("click", sanfrancisco);
+
 ///---------API CALL FUNCTION-----------///
 function handleSubmit(event) {
   event.preventDefault();
   let citySearch = document.querySelector("#search-bar").value;
-  searchCity(citySearch);
-
-  // event.preventDefault();
-  // let searchInput = document.querySelector("#search-bar");
-  // let cityName = document.querySelector("#city-name");
-  // cityName.innerHTML = searchInput.value.toUpperCase();
-  // let citySearch = searchInput.value;
-
   searchCity(citySearch);
 }
 let form = document.querySelector("form");
