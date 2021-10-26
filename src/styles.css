@@ -161,6 +161,10 @@ small a {
   max-height: 300px;
 }
 
+.weatherHeading:first-letter {
+  text-transform: capitalize;
+}
+
 .location-btn {
   font-size: 3.5rem;
   padding-left: 15px;
