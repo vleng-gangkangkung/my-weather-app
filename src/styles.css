@@ -33,6 +33,11 @@ small a {
   box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.2);
   border-bottom: #ffff 1px solid;
 }
+a,
+a:hover {
+  color: white;
+  text-decoration: none;
+}
 
 .popular-cities,
 .popular-cities a {
@@ -91,7 +96,7 @@ small a {
 
 .mainUnit {
   position: relative;
-  top: -0.15em;
+  top: -0.13em;
   vertical-align: super;
   font-size: 45%;
   line-height: normal;
@@ -179,7 +184,8 @@ small a {
   height: 50px;
 }
 
-.dayNight {
+.dayNight,
+.dayNight a {
   margin: 0 auto;
   text-align: center;
   font-size: 1.8rem;
@@ -187,13 +193,11 @@ small a {
   font-weight: 300;
   line-height: 18px;
   max-width: 100px;
-  padding-left: 10px;
-}
-
-.dayNight a {
+  padding: 0 10px 0 10px;
   color: white;
   text-decoration: none;
 }
+
 .dayNight a:hover {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 400;
@@ -220,6 +224,8 @@ small a {
 .icon {
   float: right;
   height: 250px;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(78%) saturate(31%)
+    hue-rotate(130deg) brightness(107%) contrast(107%);
 }
 .forecast-heading {
   font-family: "Dosis", sans-serif;

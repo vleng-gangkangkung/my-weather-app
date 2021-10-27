@@ -72,7 +72,9 @@ function displayName(response) {
   currentCityDisplayed.innerHTML = currentCity.toUpperCase();
 }
 
-///--------- SHOW TEMPERATURE FUNCTION GET & DISPLAY TEMPERATURE ------------///
+///--------- MAPPED ICONS-----------///
+
+///--------- SHOW TEMPERATURE FUNCTION --- GET & DISPLAY TEMPERATURE ------------///
 function showTemperature(response) {
   let temp = Math.floor(response.data.main.temp);
   let temperature = document.querySelector("#main-temp-display");
@@ -81,6 +83,13 @@ function showTemperature(response) {
   // Display City Name//
   document.querySelector("#city-name").innerHTML =
     response.data.name.toUpperCase();
+
+  // Display Icon//
+  let icon = document.querySelector("#main-icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
   // Display Main Description//
   let weatherDescription = response.data.weather[0].description;
@@ -99,14 +108,14 @@ function showTemperature(response) {
   wind.innerHTML = `Wind speed ${windSpeed}mph, Feels like ${realFeel}°C`;
 
   ///---------CONVERT UNITS C TO F TO C------------///
-  // --to fahrenheit---///
+  // ---Convert value to fahrenheit---///
   function convertToFahrenheit(event) {
     let tempValueCelcius = temp;
     let farenheitTemp = (tempValueCelcius * 9) / 5 + 32;
     let mainTempDisplay = document.querySelector("#main-temp-display");
     mainTempDisplay.innerHTML = Math.round(farenheitTemp);
   }
-
+  //------- CHANGE CLASS OF UNIT OF MEASUREMENT BIG F-------///
   function fahrenheitToMain() {
     document.getElementById("fahrenheit").classList.add("mainUnit");
     document.getElementById("fahrenheit").classList.remove("secondaryUnit");
@@ -118,12 +127,12 @@ function showTemperature(response) {
   farenheitBtn.addEventListener("click", convertToFahrenheit, true);
   farenheitBtn.addEventListener("click", fahrenheitToMain, true);
 
-  ///---to celcius---///
+  ///---Convert value to celcius---///
   function convertToCelcius(event) {
     let mainTempDisplay = document.querySelector("#main-temp-display");
     mainTempDisplay.innerHTML = temp;
   }
-
+  //------- CHANGE CLASS OF UNIT OF MEASUREMENT BIG C -------///
   function celciusToMain() {
     document.getElementById("celcius").classList.add("mainUnit");
     document.getElementById("celcius").classList.remove("secondaryUnit");
@@ -135,8 +144,6 @@ function showTemperature(response) {
   celciusBtn.addEventListener("click", convertToCelcius, true);
   celciusBtn.addEventListener("click", celciusToMain, true);
 }
-
-// //--------- CHNAGE STYLE OF UNIT OF MEASUREMENT ------------///s
 
 ///--------- END OF SHOW TEMPERATRE FUNCTION GET & DISPLAY TEMPERATURE ------------///
 
