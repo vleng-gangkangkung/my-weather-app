@@ -158,7 +158,7 @@ function changeDark() {
 
 ///---------CURRENT DATE & TIME & MONTH ------------///
 let now = new Date();
-
+let timeOfDay = now.getHours();
 //TIME
 let time = now.toLocaleTimeString([], {
   hourCycle: "h23",
@@ -168,6 +168,22 @@ let time = now.toLocaleTimeString([], {
 
 let currentTime = document.querySelector("#time");
 currentTime.innerHTML = time;
+
+function updateBG() {
+  console.log(`The time is ${timeOfDay}`);
+
+  if (timeOfDay < 15) {
+    document.getElementById("panel").classList.remove("darkClass");
+    document.getElementById("panel").classList.add("lightClass");
+  } else if (timeOfDay < 18 && timeOfDay >= 15) {
+    document.getElementById("panel").classList.remove("lightClass");
+    document.getElementById("panel").classList.add("medClass");
+  } else {
+    document.getElementById("panel").classList.remove("lightClass");
+    document.getElementById("panel").classList.add("darkClass");
+  }
+}
+updateBG();
 
 // DAY OF THE WEEK // MAPPING
 let days = [

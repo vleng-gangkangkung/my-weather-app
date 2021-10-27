@@ -85,7 +85,9 @@ a:hover {
     rgb(23, 25, 95) 71.5%
   );
 }
-
+.medClass {
+  background: linear-gradient(-225deg, #a8bfff 0%, #884d80 100%);
+}
 .temp {
   font-weight: 300;
   font-size: 18rem;
