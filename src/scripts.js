@@ -71,7 +71,7 @@ function displayName(response) {
   let currentCityDisplayed = document.querySelector("#city-name");
   currentCityDisplayed.innerHTML = currentCity.toUpperCase();
 }
-//
+
 ///--------- SHOW TEMPERATURE FUNCTION GET & DISPLAY TEMPERATURE ------------///
 function showTemperature(response) {
   let temp = Math.floor(response.data.main.temp);
@@ -99,16 +99,24 @@ function showTemperature(response) {
   wind.innerHTML = `Wind speed ${windSpeed}mph, Feels like ${realFeel}°C`;
 
   ///---------CONVERT UNITS C TO F TO C------------///
-  // --to fahrneheit---///
-  function convertToFarenheit(event) {
+  // --to fahrenheit---///
+  function convertToFahrenheit(event) {
     let tempValueCelcius = temp;
     let farenheitTemp = (tempValueCelcius * 9) / 5 + 32;
     let mainTempDisplay = document.querySelector("#main-temp-display");
-    mainTempDisplay.innerHTML = Math.ceil(farenheitTemp);
+    mainTempDisplay.innerHTML = Math.round(farenheitTemp);
   }
 
-  let farenheitBtn = document.querySelector("#deg-farenheit");
-  farenheitBtn.addEventListener("click", convertToFarenheit);
+  function fahrenheitToMain() {
+    document.getElementById("fahrenheit").classList.add("mainUnit");
+    document.getElementById("fahrenheit").classList.remove("secondaryUnit");
+    document.getElementById("celcius").classList.add("secondaryUnit");
+    document.getElementById("celcius").classList.remove("mainUnit");
+  }
+
+  let farenheitBtn = document.querySelector("#fahrenheit");
+  farenheitBtn.addEventListener("click", convertToFahrenheit, true);
+  farenheitBtn.addEventListener("click", fahrenheitToMain, true);
 
   ///---to celcius---///
   function convertToCelcius(event) {
@@ -116,23 +124,20 @@ function showTemperature(response) {
     mainTempDisplay.innerHTML = temp;
   }
 
-  let celciusBtn = document.querySelector("#deg-celcius");
-  celciusBtn.addEventListener("click", convertToCelcius);
+  function celciusToMain() {
+    document.getElementById("celcius").classList.add("mainUnit");
+    document.getElementById("celcius").classList.remove("secondaryUnit");
+    document.getElementById("fahrenheit").classList.add("secondaryUnit");
+    document.getElementById("fahrenheit").classList.remove("mainUnit");
+  }
 
-  ///
+  let celciusBtn = document.querySelector("#celcius");
+  celciusBtn.addEventListener("click", convertToCelcius, true);
+  celciusBtn.addEventListener("click", celciusToMain, true);
 }
 
-//--------- CHNAGE STYLE OF UNIT OF MEASUREMENT ------------///
-function changeToBigC() {
-  let element = document.getElementById("#deg-celcius");
-  element.classList.replace("celcius", "bigCelcius");
-}
+// //--------- CHNAGE STYLE OF UNIT OF MEASUREMENT ------------///s
 
-function changeToBigF() {
-  let element = document.getElementById("#deg-farenheit");
-  element.classList.remove("fahrenheit");
-  element.classList.add("bigFarenheit");
-}
 ///--------- END OF SHOW TEMPERATRE FUNCTION GET & DISPLAY TEMPERATURE ------------///
 
 ///---------BG COLOR TOGGLE------------///
