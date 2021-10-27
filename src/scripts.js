@@ -72,8 +72,6 @@ function displayName(response) {
   currentCityDisplayed.innerHTML = currentCity.toUpperCase();
 }
 
-///--------- MAPPED ICONS-----------///
-
 ///--------- SHOW TEMPERATURE FUNCTION --- GET & DISPLAY TEMPERATURE ------------///
 function showTemperature(response) {
   let temp = Math.floor(response.data.main.temp);
@@ -86,10 +84,7 @@ function showTemperature(response) {
 
   // Display Icon//
   let icon = document.querySelector("#main-icon");
-  icon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  icon.setAttribute("src", `images/${response.data.weather[0].icon}.svg`);
 
   // Display Main Description//
   let weatherDescription = response.data.weather[0].description;
