@@ -105,6 +105,7 @@ function showTemperature(response) {
   ///---------CONVERT UNITS C TO F TO C------------///
   // ---Convert value to fahrenheit---///
   function convertToFahrenheit(event) {
+    event.preventDefault();
     let tempValueCelcius = temp;
     let farenheitTemp = (tempValueCelcius * 9) / 5 + 32;
     let mainTempDisplay = document.querySelector("#main-temp-display");
@@ -124,6 +125,7 @@ function showTemperature(response) {
 
   ///---Convert value to celcius---///
   function convertToCelcius(event) {
+    event.preventDefault();
     let mainTempDisplay = document.querySelector("#main-temp-display");
     mainTempDisplay.innerHTML = temp;
   }
@@ -140,7 +142,7 @@ function showTemperature(response) {
   celciusBtn.addEventListener("click", celciusToMain, true);
 }
 
-///--------- END OF SHOW TEMPERATRE FUNCTION GET & DISPLAY TEMPERATURE ------------///
+///--------- END OF SHOW TEMPERATURE FUNCTION GET & DISPLAY TEMPERATURE ------------///
 
 ///---------BG COLOR TOGGLE------------///
 //DAYTIME/EVENING TOGGLE
@@ -153,8 +155,6 @@ function changeDark() {
   document.getElementById("panel").classList.remove("lightClass");
   document.getElementById("panel").classList.add("darkClass");
 }
-
-///---------SEPARATE FUNCTION OR ITEMS------------///
 
 ///---------CURRENT DATE & TIME & MONTH ------------///
 let now = new Date();
@@ -169,13 +169,13 @@ let time = now.toLocaleTimeString([], {
 let currentTime = document.querySelector("#time");
 currentTime.innerHTML = time;
 
-function updateBG() {
-  console.log(`The time is ${timeOfDay}`);
+///---------UPDATE BACKGROUND COLOUR ACCORDING TO TIME ------------///
 
-  if (timeOfDay < 15) {
+function updateBG() {
+  if (timeOfDay < 15 && timeOfDay > 5) {
     document.getElementById("panel").classList.remove("darkClass");
     document.getElementById("panel").classList.add("lightClass");
-  } else if (timeOfDay < 18 && timeOfDay >= 15) {
+  } else if (timeOfDay < 19 && timeOfDay >= 15) {
     document.getElementById("panel").classList.remove("lightClass");
     document.getElementById("panel").classList.add("medClass");
   } else {
