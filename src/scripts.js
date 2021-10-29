@@ -43,6 +43,7 @@ function handleSubmit(event) {
   event.preventDefault();
   let citySearch = document.querySelector("#search-bar").value;
   searchCity(citySearch);
+  getForecast(citySearch);
 }
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
@@ -101,6 +102,8 @@ function showTemperature(response) {
   let realFeel = response.data.main.feels_like;
   let wind = document.querySelector("#wind");
   wind.innerHTML = `Wind speed ${windSpeed}mph, Feels like ${realFeel}°C`;
+
+  displayForecast();
 }
 ///--------- END OF SHOW TEMPERATURE FUNCTION GET & DISPLAY TEMPERATURE ------------///
 

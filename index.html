@@ -139,80 +139,38 @@
 
 
       <section >
-        <div id="forecast" class="forecast-heading">FORECAST FOR THE WEEK</div>
-        <! --- date and time -- >
-        <div class="row">
-          <div class="col forecast-dayDate border-dates">
-            <div class="day">THU</div>
-            <div class="date">26/09</div>
-          </div>
-          <div class="col forecast-dayDate border-dates">
-            <div class="day">FRI</div>
-            <div class="date">26/09</div>
-          </div>
-          <div class="col forecast-dayDate border-dates">
-            <div class="day">SAT</div>
-            <div class="date">26/09</div>
-          </div>
-          <div class="col forecast-dayDate border-dates">
-            <div class="day">SUN</div>
-            <div class="date">26/09</div>
-          </div>
-          <div class="col forecast-dayDate">
-            <div class="day">MON</div>
-            <div class="date">26/09</div>
-          </div>
-        </div>
+        <div class="forecast-heading">FORECAST FOR THE WEEK</div>
+        <! --- date and time --- >
 
-        <! --- icons -- >
+      <div class="row" id="weather-forecast">
+  
+    
+        <div class="col-2 forecast-dayDate">
+            <div class="border-dates">
+              <div class="day" id="dayForecast">THU</div>
+              <div id="dateForecast">26/09</div>
+            </div>
+            <img
+                src="images/09d.svg"
+                alt="icon"
+                width="90px"
+                class="weather-icons" id="forecast-icon"
+              />
+              <div class="forecastTemperature" id="forecast-temp">18<span class="celcius">&#176;</div>
+          </div>
+       
 
-        <div class="row">
-          <div class="col day1">
-            <img
-              src="images/09d.svg"
-              alt="icon"
-              width="90px"
-              class="weather-icons"
-            />
-            <div class="forecast-temperature">18<span class="celcius">&#176;</div>
-          </div>
-          <div class="col day2">
-            <img
-              src="images/10d.svg"
-              alt="icon"
-              width="90px"
-              class="weather-icons"
-            /> <div class="forecast-temperature">18<span class="celcius">&#176;</div>
-          </div>
-          <div class="col day3">
-            <img
-              src="images/02d.svg"
-              alt="icon"
-              width="90px"
-              class="weather-icons"
-            /> <div class="forecast-temperature">18<span class="celcius">&#176;</div>
-          </div>
-          <div class="col day4">
-            <img
-              src="images/03d.svg"
-              alt="icon"
-              width="90px"
-              class="weather-icons"
-            /> <div class="forecast-temperature">18<span class="celcius">&#176;</div>
-          </div>
-          <div class="col day5">
-            <img
-              src="images/01d.svg"
-              alt="icon"
-              width="90px"
-              class="weather-icons"
-            /> <div class="forecast-temperature">18<span class="celcius">&#176;</div>
-          </div>
-        </div>
+       
+    
+
+      
+        
+    
       </section>
     </div></div>
   <small>Coded and designed by <a href="https://vleng.co.uk" target="_blank">Vanessa Leng</a> | <a href="https://github.com/vleng-gangkangkung/my-weather-app-test" target="_blank">Open Source Code</a></small>
   </div>
 <script src="src/scripts.js"></script>
+<script src="src/scripts_forecast.js"></script> 
   </body>
 </html>

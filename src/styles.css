@@ -116,6 +116,7 @@ a:hover {
   margin-left: 8px;
   text-decoration: none;
   color: white;
+  opacity: 0.5;
 }
 
 .degreeSymbol {
@@ -257,7 +258,7 @@ a:hover {
   font-weight: 700;
 }
 
-.forecast-temperature {
+.forecastTemperature {
   text-align: center;
   font-family: "Dosis", sans-serif;
   font-size: 2.2rem;
