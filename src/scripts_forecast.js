@@ -1,12 +1,14 @@
 function displayForecast() {
   let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<span class="border-left-forecast"></span>`;
+  let daysOfWeek = ["DAY1", "DAY2", "DAY3", "DAY4", "DAY5"];
 
-  let forecastHTML = "";
-
-  forecastHTML.innerHTML = `
-    <div class="col-2 forecast-dayDate">
-            <div class="border-dates">
-              <div class="day" id="dayForecast">THU</div>
+  daysOfWeek.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col forecast-dayDate">
+            <div class="border-dates-forecast">
+              <div class="day" id="dayForecast">${day}</div>
               <div id="dateForecast">26/09</div>
             </div>
             <img
@@ -17,5 +19,7 @@ function displayForecast() {
               />
               <div class="forecastTemperature" id="forecast-temp">18<span class="celcius">&#176;</div>
           </div>
-`;
+          `;
+  });
+  forecastElement.innerHTML = forecastHTML;
 }
