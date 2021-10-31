@@ -25,3 +25,7 @@ function displayForecast() {
 }
 
 displayForecast();
+
+//   let apiKey = "9f2f2317935bb527c06dce1cab398efc";
+//   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}&units=metric`;
+//

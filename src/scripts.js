@@ -73,6 +73,10 @@ function displayName(response) {
   currentCityDisplayed.innerHTML = currentCity.toUpperCase();
 }
 
+//GET FORECAST LAT & LONG //
+function getForecast(coordinates) {
+  console.log(coordinates);
+}
 ///--------- SHOW TEMPERATURE FUNCTION --- GET & DISPLAY TEMPERATURE ------------///
 function showTemperature(response) {
   temp = response.data.main.temp;
@@ -102,7 +106,12 @@ function showTemperature(response) {
   let realFeel = response.data.main.feels_like;
   let wind = document.querySelector("#wind");
   wind.innerHTML = `Wind speed ${windSpeed}mph, Feels like ${realFeel}°C`;
+
+  //FORECAST COORDINATES //
+  getForecast(response.data.coord);
+  // console.log(response.data.coord);
 }
+
 ///--------- END OF SHOW TEMPERATURE FUNCTION GET & DISPLAY TEMPERATURE ------------///
 
 ///-------------CONVERT UNITS C TO F TO C----------------///
