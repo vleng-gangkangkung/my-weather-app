@@ -3,7 +3,7 @@ function displayForecast() {
   let forecastHTML = `<span class="border-left-forecast"></span>`;
   let daysOfWeek = ["DAY1", "DAY2", "DAY3", "DAY4", "DAY5"];
 
-  daysOfWeek.forEach(function (day) {
+  daysOfWeek.forEach((day) => {
     forecastHTML =
       forecastHTML +
       `<div class="col forecast-dayDate">
@@ -23,3 +23,5 @@ function displayForecast() {
   });
   forecastElement.innerHTML = forecastHTML;
 }
+
+displayForecast();
