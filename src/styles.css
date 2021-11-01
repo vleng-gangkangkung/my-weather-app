@@ -271,6 +271,10 @@ a:hover {
   font-size: 2.2rem;
   padding-top: 10px;
 }
+.forecastTemperature-min {
+  opacity: 0.5;
+  padding-left: 3px;
+}
 
 .border-dates-forecast {
   border-right: #ffff 1px solid;
