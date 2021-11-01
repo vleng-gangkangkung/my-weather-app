@@ -236,13 +236,23 @@ a:hover {
   box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.3);
 }
 
-.forecast-heading {
+.forecastHeading {
   font-family: "Dosis", sans-serif;
   font-weight: 500;
   font-size: 3rem;
   padding-bottom: 10px;
   width: 400px;
   max-height: 300px;
+}
+
+.forecastHeadingCF {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  padding-bottom: 10px;
+  width: 400px;
+  max-height: 300px;
+  text-align: right;
 }
 
 .forecast-dayDate {
