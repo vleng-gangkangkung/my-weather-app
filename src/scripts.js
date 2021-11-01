@@ -94,10 +94,11 @@ function displayForecast(response) {
 
   //-----Forecast Days Mapping ------////
 
-  forecast.forEach((forecastDay) => {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col forecast-dayDate">
+  forecast.forEach((forecastDay, index) => {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col forecast-dayDate">
             <div class="border-dates-forecast">
               <div class="day" id="dayForecast">${formatForecastDay(
                 forecastDay.dt
@@ -113,10 +114,11 @@ function displayForecast(response) {
               <div class="forecastTemperature" id="forecast-temp">${Math.round(
                 forecastDay.temp.max
               )}&#176; <span class="forecastTemperature-min">${Math.round(
-        forecastDay.temp.min
-      )}&#176;</span></div>
+          forecastDay.temp.min
+        )}&#176;</span></div>
           </div>
           `;
+    }
   });
   forecastElement.innerHTML = forecastHTML;
 }
