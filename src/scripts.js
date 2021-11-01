@@ -90,8 +90,6 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<span class="border-left-forecast"></span>`;
 
-  // let daysOfWeek = daysForecast[("DAY1", "DAY2", "DAY3", "DAY4", "DAY5")];
-
   //-----Forecast Days Mapping ------////
 
   forecast.forEach((forecastDay, index) => {
@@ -111,11 +109,11 @@ function displayForecast(response) {
                 width="90px"
                 class="weather-icons" id="forecast-icon"
               />
-              <div class="forecastTemperature" id="forecast-temp">${Math.round(
+              <div class="forecastTemperature" id="forecast-temp-max">${Math.round(
                 forecastDay.temp.max
               )}&#176; <span class="forecastTemperature-min">${Math.round(
           forecastDay.temp.min
-        )}&#176;</span></div>
+        )}&#176; </span></div>
           </div>
           `;
     }
