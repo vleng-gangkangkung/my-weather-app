@@ -271,9 +271,11 @@ a:hover {
 
 .weatherIcons {
   padding-top: 20px;
+
+  width: 90px;
   display: block;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 20px;
   filter: brightness(0) saturate(100%) invert(100%) sepia(78%) saturate(31%)
     hue-rotate(130deg) brightness(107%) contrast(107%);
   will-change: transform;
@@ -294,10 +296,17 @@ a:hover {
   font-family: "Dosis", sans-serif;
   font-size: 2.2rem;
   padding-top: 10px;
+  margin-right: 10px;
 }
 .forecastTemperatureMin {
   opacity: 0.5;
   padding-left: 3px;
+}
+
+.forecastCelcius {
+  opacity: 0.5;
+  padding-left: 15px;
+  font-weight: 300;
 }
 
 .border-dates-forecast {

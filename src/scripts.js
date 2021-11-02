@@ -130,12 +130,12 @@ function displayForecast(response) {
             <img
                 src="images/${forecastDay.weather[0].icon}.svg"
                 alt="icon"
-                width="90px"
+                
                 class="weatherIcons" id="forecast-icon"
               />
-              <div class="forecastTemperature" id="forecast-temp-max">${Math.round(
+              <div class="forecastTemperature" id="forecast-temp-max" title="Maximum temperature &#176;C">${Math.round(
                 forecastDay.temp.max
-              )}&#176; <span class="forecastTemperatureMin">${Math.round(
+              )}&#176; <span class="forecastTemperatureMin" title="Minimum temperature &#176;C">${Math.round(
           forecastDay.temp.min
         )}&#176; </span></div>
           </div>
