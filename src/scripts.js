@@ -79,17 +79,39 @@ function formatForecastDay(timestamp) {
   let day = date.getDay();
   let daysForecast = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-  return daysForecast[day];
+  let monthsForecast = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+  //
+  let month = monthsForecast[date.getMonth()];
+  let dayWeek = daysForecast[day];
+
+  let dayNumber = day;
+  if (day < 9) {
+    dayNumber = `0${day}`;
+  }
+
+  return [dayNumber, dayWeek, month];
 }
 
 //---------DISPLAY FORECAST --------//
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<span class="border-left-forecast"></span>`;
-
+  forecastDate = formatForecastDay();
   //-----Forecast Days Mapping ------////
 
   forecast.forEach((forecastDay, index) => {
@@ -98,10 +120,12 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col forecast-dayDate">
             <div class="border-dates-forecast">
-              <div class="day" id="dayForecast">${formatForecastDay(
-                forecastDay.dt
-              )}</div>
-              <div id="dateForecast">26/09</div>
+              <div class="day" id="dayForecast">${
+                formatForecastDay(forecastDay.dt)[1]
+              }</div>
+              <div id="dateForecast">${formatForecastDay(forecastDay.dt)[0]}/${
+          formatForecastDay(forecastDay.dt)[2]
+        }</div>
             </div>
             <img
                 src="images/${forecastDay.weather[0].icon}.svg"
