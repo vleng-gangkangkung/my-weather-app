@@ -131,11 +131,11 @@ function displayForecast(response) {
                 src="images/${forecastDay.weather[0].icon}.svg"
                 alt="icon"
                 width="90px"
-                class="weather-icons" id="forecast-icon"
+                class="weatherIcons" id="forecast-icon"
               />
               <div class="forecastTemperature" id="forecast-temp-max">${Math.round(
                 forecastDay.temp.max
-              )}&#176; <span class="forecastTemperature-min">${Math.round(
+              )}&#176; <span class="forecastTemperatureMin">${Math.round(
           forecastDay.temp.min
         )}&#176; </span></div>
           </div>
@@ -148,7 +148,6 @@ function displayForecast(response) {
 //------ GET FORECAST LAT & LONG -----//
 
 function getForecast(coordinates) {
-  // console.log(coordinates);
   let lon = coordinates.lon;
   let lat = coordinates.lat;
   let apiKey = "7784a4cd4aa2e0c25ead7bd96d585b8a";
@@ -161,7 +160,6 @@ function getForecast(coordinates) {
 function showTemperature(response) {
   //FORECAST COORDINATES //
   getForecast(response.data.coord);
-  console.log(response.data.coord);
 
   temp = response.data.main.temp;
   let temperature = document.querySelector("#main-temp-display");
@@ -237,22 +235,10 @@ celciusBtn.addEventListener("click", celciusToMain, true);
 ///---------GLOBAL VARIABLE TO PULL TEMP VALUE INTO CtoF CONVERTER-----------///
 let temp = null;
 
-///---------BG COLOR TOGGLE------------///
-//DAYTIME/EVENING TOGGLE
-function changeLight() {
-  document.getElementById("panel").classList.remove("darkClass");
-  document.getElementById("panel").classList.add("lightClass");
-}
-
-function changeDark() {
-  document.getElementById("panel").classList.remove("lightClass");
-  document.getElementById("panel").classList.add("darkClass");
-}
-
 ///---------CURRENT DATE & TIME & MONTH ------------///
 let now = new Date();
 let timeOfDay = now.getHours();
-console.log(now);
+
 //TIME
 let time = now.toLocaleTimeString([], {
   hourCycle: "h23",
@@ -278,7 +264,17 @@ function updateBG() {
   }
 }
 updateBG();
+///---------BG COLOR TOGGLE------------///
+//DAYTIME/EVENING TOGGLE
+function changeLight() {
+  document.getElementById("panel").classList.remove("darkClass");
+  document.getElementById("panel").classList.add("lightClass");
+}
 
+function changeDark() {
+  document.getElementById("panel").classList.remove("lightClass");
+  document.getElementById("panel").classList.add("darkClass");
+}
 // DAY OF THE WEEK // MAPPING
 let days = [
   "Sunday",

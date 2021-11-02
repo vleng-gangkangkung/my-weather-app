@@ -230,6 +230,14 @@ a:hover {
   filter: brightness(0) saturate(100%) invert(100%) sepia(78%) saturate(31%)
     hue-rotate(130deg) brightness(107%) contrast(107%);
 }
+.iconBackground {
+  will-change: transform;
+  transition: 500ms ease-in;
+}
+.icon:hover .iconBackground {
+  transform: scale(1.05);
+  transition: 500ms ease-in;
+}
 
 .border-dates {
   border-right: #ffff 1px solid;
@@ -261,13 +269,19 @@ a:hover {
   font-size: 2.2rem;
 }
 
-.weather-icons {
+.weatherIcons {
   padding-top: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   filter: brightness(0) saturate(100%) invert(100%) sepia(78%) saturate(31%)
     hue-rotate(130deg) brightness(107%) contrast(107%);
+  will-change: transform;
+  transition: 600ms ease-in;
+}
+.weatherIcons:hover {
+  transform: scale(1.05);
+  transition: 500ms ease-in;
 }
 
 .day {
@@ -281,7 +295,7 @@ a:hover {
   font-size: 2.2rem;
   padding-top: 10px;
 }
-.forecastTemperature-min {
+.forecastTemperatureMin {
   opacity: 0.5;
   padding-left: 3px;
 }
