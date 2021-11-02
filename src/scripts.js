@@ -77,19 +77,43 @@ function displayName(response) {
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let daysForecast = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-  return daysForecast[day];
+  let daysForecast = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  let monthsForecast = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+  //
+  let month = monthsForecast[date.getMonth()];
+  let dayWeek = daysForecast[day];
+
+  let dayNumber = day;
+  if (day < 9) {
+    dayNumber = `0${day}`;
+  }
+
+  return [dayNumber, dayWeek, month];
 }
+
+//
 
 //---------DISPLAY FORECAST --------//
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
-
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<span class="border-left-forecast"></span>`;
-
+  forecastDate = formatForecastDay();
   //-----Forecast Days Mapping ------////
 
   forecast.forEach((forecastDay, index) => {
@@ -98,10 +122,10 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col forecast-dayDate">
             <div class="border-dates-forecast">
-              <div class="day" id="dayForecast">${formatForecastDay(
-                forecastDay.dt
-              )}</div>
-              <div id="dateForecast">26/09</div>
+              <div class="day">${formatForecastDay(forecastDay.dt)[1]}</div>
+              <div>${formatForecastDay(forecastDay.dt)[0]}/${
+          formatForecastDay(forecastDay.dt)[2]
+        }</div>
             </div>
             <img
                 src="images/${forecastDay.weather[0].icon}.svg"
@@ -124,7 +148,6 @@ function displayForecast(response) {
 //------ GET FORECAST LAT & LONG -----//
 
 function getForecast(coordinates) {
-  // console.log(coordinates);
   let lon = coordinates.lon;
   let lat = coordinates.lat;
   let apiKey = "7784a4cd4aa2e0c25ead7bd96d585b8a";
@@ -137,7 +160,6 @@ function getForecast(coordinates) {
 function showTemperature(response) {
   //FORECAST COORDINATES //
   getForecast(response.data.coord);
-  console.log(response.data.coord);
 
   temp = response.data.main.temp;
   let temperature = document.querySelector("#main-temp-display");
@@ -228,7 +250,7 @@ function changeDark() {
 ///---------CURRENT DATE & TIME & MONTH ------------///
 let now = new Date();
 let timeOfDay = now.getHours();
-console.log(now);
+
 //TIME
 let time = now.toLocaleTimeString([], {
   hourCycle: "h23",
