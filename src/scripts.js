@@ -185,7 +185,7 @@ function showTemperature(response) {
 
   // Display Wind Description//
   let windSpeed = response.data.wind.speed;
-  let realFeel = response.data.main.feels_like;
+  let realFeel = Math.round(response.data.main.feels_like);
   let wind = document.querySelector("#wind");
   wind.innerHTML = `Wind speed ${windSpeed}mph, Feels like ${realFeel}°C`;
 }
