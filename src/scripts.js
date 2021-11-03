@@ -76,6 +76,8 @@ function displayName(response) {
 
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
+  let fcdate = date.getDate();
+
   let day = date.getDay();
   let daysForecast = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
@@ -97,9 +99,9 @@ function formatForecastDay(timestamp) {
   let month = monthsForecast[date.getMonth()];
   let dayWeek = daysForecast[day];
 
-  let dayNumber = day;
-  if (day < 9) {
-    dayNumber = `0${day}`;
+  let dayNumber = fcdate;
+  if (fcdate < 9) {
+    dayNumber = `0${fcdate}`;
   }
 
   return [dayNumber, dayWeek, month];
@@ -143,6 +145,7 @@ function displayForecast(response) {
     }
   });
   forecastElement.innerHTML = forecastHTML;
+  console.log(date);
 }
 
 //------ GET FORECAST LAT & LONG -----//
@@ -154,6 +157,7 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
 }
 
 ///--------- SHOW TEMPERATURE FUNCTION --- GET & DISPLAY TEMPERATURE ------------///
