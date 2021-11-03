@@ -76,8 +76,8 @@ function displayName(response) {
 
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let fcdate = date.getDate();
 
+  let fcdate = date.getDate();
   let day = date.getDay();
   let daysForecast = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
@@ -272,11 +272,13 @@ updateBG();
 //DAYTIME/EVENING TOGGLE
 function changeLight() {
   document.getElementById("panel").classList.remove("darkClass");
+  document.getElementById("panel").classList.remove("medClass");
   document.getElementById("panel").classList.add("lightClass");
 }
 
 function changeDark() {
   document.getElementById("panel").classList.remove("lightClass");
+  document.getElementById("panel").classList.remove("medClass");
   document.getElementById("panel").classList.add("darkClass");
 }
 // DAY OF THE WEEK // MAPPING
